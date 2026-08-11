@@ -1,0 +1,34 @@
+# Squelette de départ pour le POC — Orthanc (serveur DICOM) + OHIF Viewer (visualiseur web)
+# À adapter/compléter avec Claude Code ou Codex avant le premier lancement.
+# Rappel : aucune donnée patient réelle, y compris en local (voir CLAUDE.md / AGENTS.md).
+
+services:
+  orthanc:
+    image: orthancteam/orthanc:latest
+    container_name: orthanc-poc
+    ports:
+      - "8042:8042"   # Interface web Orthanc + API REST
+      - "4242:4242"   # Port DICOM standard (C-STORE, etc.)
+    environment:
+      ORTHANC__NAME: "POC-Teleradiologie"
+      ORTHANC__DICOM_WEB_PLUGIN_ENABLED: "true"
+      # TODO : ajouter authentification (ORTHANC__REGISTERED_USERS) avant toute démo partagée
+    volumes:
+      - orthanc-storage:/var/lib/orthanc/db
+    restart: unless-stopped
+
+  # OHIF Viewer nécessite une configuration pointant vers le endpoint DICOMweb d'Orthanc.
+  # TODO : construire/servir OHIF (build officiel ou image communautaire) et configurer
+  # app-config.js pour pointer vers http://orthanc:8042/dicom-web
+  ohif:
+    image: ohif/app:latest
+    container_name: ohif-poc
+    ports:
+      - "3000:80"
+    depends_on:
+      - orthanc
+    # TODO : monter une configuration personnalisée (volume) référençant Orthanc en DICOMweb
+    restart: unless-stopped
+
+volumes:
+  orthanc-storage:

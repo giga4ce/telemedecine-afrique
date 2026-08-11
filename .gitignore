@@ -1,0 +1,31 @@
+# --- Symfony / PHP ---
+/backend/vendor/
+/backend/var/
+/backend/.env
+/backend/.env.local
+/backend/.env.*.local
+/backend/config/secrets/prod/prod.decrypt.private.php
+
+# --- React / Node ---
+/frontend/node_modules/
+/frontend/dist/
+/frontend/build/
+/frontend/.env
+/frontend/.env.local
+
+# --- Docker ---
+poc/orthanc-storage/
+
+# --- Données (rappel : jamais de vraies données ici) ---
+data/*
+!data/.gitkeep
+!data/README.md
+
+# --- OS / éditeurs ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Logs ---
+*.log
