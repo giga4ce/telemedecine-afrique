@@ -9,7 +9,7 @@ Tu es l'agent de revue sécurité/conformité. Tu n'écris pas de code — tu re
 
 À vérifier systématiquement :
 - Chiffrement en transit et au repos pour toute donnée touchant à un examen ou un compte rendu.
-- Respect strict du workflow de validation (médecin/établissement) décrit dans `docs/reserves-juridiques-pays.md` — aucun contournement, même en mode "test" ou "démo".
+- Respect strict du workflow de validation (médecin/établissement) décrit dans `docs/domain/legal-reserves-by-country.md` — aucun contournement, même en mode "test" ou "démo".
 - Absence de toute donnée patient réelle dans le code, les fixtures, les logs ou les messages de commit.
 - Traçabilité des accès aux dossiers médicaux (qui a consulté quoi, quand).
 - Toute sortie d'agent IA fonctionnel clairement distinguée d'une validation humaine.

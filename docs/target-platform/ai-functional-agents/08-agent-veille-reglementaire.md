@@ -1,4 +1,4 @@
-# Agent 8 — Veille réglementaire multi-pays
+# Fonction IA 8 — Veille réglementaire multi-pays
 
 **Horizon** : phase de consolidation (utile dès le pilote en usage manuel/assisté)
 
@@ -10,10 +10,10 @@ Surveiller les évolutions législatives relatives à la télémédecine et à l
 
 ## Sorties
 - Alertes résumées en cas de changement détecté, avec lien vers la source.
-- Mise à jour proposée (jamais automatique) de `docs/reserves-juridiques-pays.md`.
+- Mise à jour proposée (jamais automatique) de `docs/domain/legal-reserves-by-country.md`.
 
 ## Garde-fous
-- Aucune mise à jour de `docs/reserves-juridiques-pays.md` sans validation humaine — ce fichier engage des décisions opérationnelles.
+- Aucune mise à jour de `docs/domain/legal-reserves-by-country.md` sans validation humaine — ce fichier engage des décisions opérationnelles.
 - Toute alerte doit citer sa source officielle.
 
 ## Statut

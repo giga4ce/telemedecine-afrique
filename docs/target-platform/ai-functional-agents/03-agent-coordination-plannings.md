@@ -1,6 +1,6 @@
-# Agent 3 — Coordination des plannings de vacations
+# Fonction IA 3 — Coordination des plannings de vacations
 
-**Horizon** : phase pilote
+**Horizon** : pilote opérationnel post-POC
 
 ## Objectif
 Optimiser l'affectation vacations/experts/volumes en fonction des disponibilités déclarées et des sur-spécialités couvertes ; répond au risque « disponibilité des experts » identifié dans le dossier de projet.

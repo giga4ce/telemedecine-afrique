@@ -1,6 +1,6 @@
-# Agent 2 — Assistant de structuration des comptes rendus
+# Fonction IA 2 — Assistant de structuration des comptes rendus
 
-**Horizon** : phase pilote
+**Horizon** : pilote opérationnel post-POC
 
 ## Objectif
 Aider le radiologue à rédiger un compte rendu structuré : proposer un modèle adapté au type d'examen, harmoniser la terminologie, signaler les incohérences avant validation.
@@ -15,7 +15,7 @@ Aider le radiologue à rédiger un compte rendu structuré : proposer un modèle
 
 ## Garde-fous
 - Le radiologue reste seul signataire et responsable du compte rendu final.
-- L'agent ne doit jamais ajouter de constat médical non fourni par le radiologue.
+- La fonction ne doit jamais ajouter de constat médical non fourni par le radiologue.
 - Toute suggestion de contenu doit être visuellement distincte du texte du radiologue jusqu'à validation explicite.
 
 ## Statut

@@ -4,16 +4,17 @@ Ce fichier est l'équivalent de `CLAUDE.md` pour les agents Codex. Le contenu de
 
 ## Projet
 
-Réseau francophone de télémédecine — Phase 1 : plateforme de téléradiologie connectant des établissements de santé du Tchad, de la Côte d'Ivoire et du Cameroun à un réseau d'experts radiologues francophones.
+Réseau francophone de télémédecine — Phase 1 : téléradiologie. Le POC technique actuel valide Orthanc, DICOMweb et OHIF avec le Tchad comme premier terrain de validation.
 
-Document de référence complet : `docs/dossier-projet.md`
+Document de vision : `docs/product/vision.md`
 
 ## État du projet
 
 - Phase actuelle : POC technique, aucune donnée patient réelle.
 - Stack : Orthanc (serveur DICOM) + OHIF Viewer, Docker, local puis OVHcloud.
-- Statut réglementaire par pays : voir `docs/reserves-juridiques-pays.md` — production bloquée tant que l'autorisation Ordre des médecins + Ministère de la Santé n'est pas obtenue.
-- Spécifications POC : `docs/cahier-des-charges-poc.md`.
+- Premier terrain de validation : Tchad.
+- Statut réglementaire par pays : voir `docs/domain/legal-reserves-by-country.md` — production bloquée tant que l'autorisation Ordre des médecins + Ministère de la Santé n'est pas obtenue.
+- Spécifications POC : `docs/poc/scope.md`.
 
 ## Règles absolues
 
@@ -37,5 +38,5 @@ cd poc && docker compose down
 
 - `docs/` — documentation de fond (dossier projet, réserves juridiques, cahier des charges).
 - `poc/` — infrastructure Docker du POC.
-- `agents-ia/` — spécifications des agents IA à développer.
+- `docs/target-platform/ai-functional-agents/` — spécifications des fonctions IA futures du produit.
 - `data/` — données de test uniquement, jamais de données réelles.

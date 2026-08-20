@@ -1,6 +1,6 @@
 # Squelette de départ pour le POC — Orthanc (serveur DICOM) + OHIF Viewer (visualiseur web)
-# À adapter/compléter avec Claude Code ou Codex avant le premier lancement.
-# Rappel : aucune donnée patient réelle, y compris en local (voir CLAUDE.md / AGENTS.md).
+# À adapter/compléter avant une démonstration de bout en bout.
+# Rappel : aucune donnée patient réelle, y compris en local.
 
 services:
   orthanc:

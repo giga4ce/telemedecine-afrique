@@ -1,4 +1,4 @@
-# Agent 7 — Synthèse des RCP (Réunions de Concertation Pluridisciplinaire)
+# Fonction IA 7 — Synthèse des RCP (Réunions de Concertation Pluridisciplinaire)
 
 **Horizon** : phase de consolidation
 

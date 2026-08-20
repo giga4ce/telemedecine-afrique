@@ -1,6 +1,6 @@
-# Agent 4 — Support conversationnel établissements
+# Fonction IA 4 — Support conversationnel établissements
 
-**Horizon** : phase pilote
+**Horizon** : pilote opérationnel post-POC
 
 ## Objectif
 Répondre aux questions courantes des établissements partenaires (statut d'un dossier, délai estimé, procédure d'envoi d'un examen) pour réduire la charge de l'équipe de coordination.
@@ -14,7 +14,7 @@ Répondre aux questions courantes des établissements partenaires (statut d'un d
 - Escalade vers un humain de la coordination pour toute question hors périmètre ou sensible.
 
 ## Garde-fous
-- Aucun accès en écriture aux dossiers via cet agent.
+- Aucun accès en écriture aux dossiers via cette fonction.
 - Aucune information médicale (résultat d'examen) communiquée par ce canal — uniquement des informations de statut/logistique.
 
 ## Statut

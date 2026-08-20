@@ -6,6 +6,12 @@
 
 ---
 
+## Note de cadrage actuelle
+
+Le périmètre historique mentionne le Tchad, la Côte d'Ivoire et le Cameroun comme pays pilotes de la vision produit. Le POC technique actuel est indépendant d'un déploiement simultané dans trois pays.
+
+L'exécution démarre par le Tchad comme premier terrain de validation. Le code du POC doit rester simple : il valide Orthanc, DICOMweb, OHIF et les simulations minimales d'accès, sans architecture multi-pays.
+
 ## 1. Contexte et objectif du POC
 
 Le projet vise à connecter des établissements de santé d'Afrique francophone à un réseau d'experts radiologues francophones, via une plateforme de téléradiologie sécurisée. Avant tout déploiement réel (qui nécessite l'autorisation préalable des Ordres des médecins et des Ministères de la Santé des pays pilotes, ainsi que des partenariats hospitaliers signés), un **POC technique** doit démontrer la faisabilité de la chaîne technologique de bout en bout, dans des conditions représentatives du terrain (connectivité limitée, coupures d'électricité).
@@ -34,6 +40,9 @@ Le projet vise à connecter des établissements de santé d'Afrique francophone 
 - Rédaction de comptes rendus médicaux (structuration, validation médicale).
 - Visioconférence / RCP à distance.
 - Facturation, gestion des plannings de vacations.
+- Réseau complet d'experts.
+- Plateforme opérationnelle multi-pays.
+- Automatisation médicale par IA.
 
 ## 3. Architecture technique
 
@@ -104,4 +113,4 @@ Le projet vise à connecter des établissements de santé d'Afrique francophone 
 
 - Présentation de la démonstration à la porteuse de projet et aux interlocuteurs pertinents (Ordres des médecins, Ministères de la Santé, futurs établissements partenaires, bailleur).
 - En parallèle du POC, poursuite du travail administratif : demandes d'autorisation auprès des Ordres et Ministères, négociation des premiers partenariats hospitaliers.
-- Une fois les autorisations obtenues dans un premier pays (probablement la Côte d'Ivoire, déjà dotée d'un cadre réglementaire spécifique), spécification détaillée de la plateforme de production sur la base des enseignements du POC.
+- Une fois les autorisations obtenues dans le premier pays retenu pour le pilote opérationnel, spécification détaillée de la plateforme de production sur la base des enseignements du POC.

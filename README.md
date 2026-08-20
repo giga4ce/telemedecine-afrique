@@ -1,34 +1,54 @@
-# Réseau francophone de télémédecine — Écosystème technique
+# Télémédecine Afrique
 
-Dossier de travail pour le développement du POC de téléradiologie et des agents IA associés, destiné à être ouvert avec **Claude Code** et/ou **Codex**.
+## Vision
 
-## Démarrage
+Le projet vise à construire progressivement un réseau francophone de télémédecine et d'expertise médicale pour l'Afrique.
 
-1. Ouvrir un terminal dans ce dossier.
-2. Lancer `claude` (Claude Code) ou `codex` selon l'outil utilisé — le contexte est chargé automatiquement via `CLAUDE.md` / `AGENTS.md`.
-3. Le contexte projet, les règles absolues et l'état d'avancement sont dans `CLAUDE.md` (Claude Code) et `AGENTS.md` (Codex) — contenu équivalent, à garder synchronisé si l'un des deux est modifié.
+La première brique produit est la téléradiologie. Les services plus larges, comme les comptes rendus médicaux, la deuxième lecture, les RCP, la gestion des vacations, la facturation et l'extension multi-pays, relèvent de la plateforme cible.
 
-## Structure
+## Phase actuelle
 
-```
-teleradiologie-afrique/
-├── CLAUDE.md                  # Contexte pour Claude Code
-├── AGENTS.md                  # Contexte pour Codex
-├── README.md                  # Ce fichier
-├── docs/
-│   ├── dossier-projet.md              # Synthèse du dossier de projet
-│   ├── dossier-projet-original.docx   # Document source complet
-│   ├── reserves-juridiques-pays.md    # État des lieux juridique par pays
-│   └── cahier-des-charges-poc.md      # Spécifications techniques du POC
-├── poc/
-│   ├── docker-compose.yml     # Squelette Orthanc + OHIF (à compléter)
-│   └── README.md
-├── agents-ia/
-│   ├── README.md              # Vue d'ensemble des 8 agents prévus
-│   └── 01-...08-...md         # Une fiche de spécification par agent
-└── data/                      # Données de test UNIQUEMENT (anonymisées/synthétiques)
+Le repository est au stade **POC technique de téléradiologie**.
+
+Le premier terrain de validation est le **Tchad**. La Côte d'Ivoire et le Cameroun restent dans la vision historique et la roadmap, mais le POC technique actuel ne dépend pas d'une architecture multi-pays.
+
+Objectif technique du POC :
+
+```text
+DICOM
+-> Orthanc
+-> DICOMweb
+-> OHIF Viewer
 ```
 
-## Règle absolue à ne jamais perdre de vue
+## État du repository
 
-Aucune donnée patient réelle ne doit jamais transiter par ce dépôt, à quelque stade que ce soit. Voir `CLAUDE.md` pour la liste complète des règles non négociables.
+- `poc/docker-compose.yml` existe.
+- Orthanc est présent dans Docker Compose.
+- Le plugin DICOMweb d'Orthanc est activé.
+- OHIF Viewer est présent dans Docker Compose.
+- L'intégration OHIF -> Orthanc via DICOMweb reste à finaliser.
+- Aucun backend produit complet n'est implémenté.
+- Aucun frontend produit complet n'est implémenté.
+- Aucun jeu DICOM de démonstration n'est versionné.
+
+## Documentation
+
+- Vision produit : [`docs/product/vision.md`](docs/product/vision.md)
+- Roadmap : [`docs/product/roadmap.md`](docs/product/roadmap.md)
+- Glossaire : [`docs/product/glossary.md`](docs/product/glossary.md)
+- Périmètre du POC : [`docs/poc/scope.md`](docs/poc/scope.md)
+- Architecture du POC : [`docs/poc/architecture.md`](docs/poc/architecture.md)
+- Réserves juridiques par pays : [`docs/domain/legal-reserves-by-country.md`](docs/domain/legal-reserves-by-country.md)
+- Fonctions IA futures du produit : [`docs/target-platform/ai-functional-agents/`](docs/target-platform/ai-functional-agents/)
+- Documents sources historiques : [`docs/sources/`](docs/sources/)
+
+## Données médicales
+
+Aucune donnée patient réelle ne doit être utilisée dans ce POC.
+
+Le dossier [`data/`](data/) accepte uniquement des données DICOM anonymisées ou synthétiques. Les données de test ne doivent pas contenir d'identité réelle, même partielle.
+
+## Development tooling
+
+Les fichiers dédiés aux assistants de développement restent dans ce repository pour l'instant. Ils seront extraits plus tard dans un repository AI Harness séparé.

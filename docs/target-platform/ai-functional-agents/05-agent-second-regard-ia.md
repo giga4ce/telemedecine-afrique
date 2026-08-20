@@ -1,4 +1,4 @@
-# Agent 5 — Second regard IA sur l'image
+# Fonction IA 5 — Second regard IA sur l'image
 
 **Horizon** : phase de consolidation (post-pilote)
 

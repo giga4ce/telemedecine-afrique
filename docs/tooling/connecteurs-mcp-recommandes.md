@@ -1,5 +1,7 @@
 # Connecteurs (MCP) recommandés
 
+**TO MOVE TO AI HARNESS.** Ce fichier concerne le tooling des agents de développement. Il reste ici temporairement, jusqu'à l'extraction du repository `telemedecine-afrique-ai-harness`.
+
 ## Côté développement — Claude Code / Codex
 
 Ces connecteurs se configurent dans l'environnement de développement (fichier `.mcp.json` à la racine du projet pour Claude Code, ou équivalent Codex). Ils donnent aux agents techniques un accès direct à vos outils, plutôt que de vous faire copier-coller manuellement.
@@ -27,5 +29,5 @@ Ces connecteurs se branchent depuis l'interface claude.ai (pas depuis ce dépôt
 
 ## Ce qu'il ne faut pas connecter à ce stade
 
-- Aucun connecteur donnant accès à des données patient réelles ou à un système de production tant que les autorisations réglementaires ne sont pas obtenues (voir `reserves-juridiques-pays.md`).
+- Aucun connecteur donnant accès à des données patient réelles ou à un système de production tant que les autorisations réglementaires ne sont pas obtenues (voir `../domain/legal-reserves-by-country.md`).
 - Éviter de connecter plusieurs outils de gestion de tâches en parallèle (Linear + Jira par exemple) : source de confusion sur la source de vérité du planning.

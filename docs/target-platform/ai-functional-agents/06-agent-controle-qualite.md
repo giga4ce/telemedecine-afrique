@@ -1,4 +1,4 @@
-# Agent 6 — Contrôle qualité rétrospectif
+# Fonction IA 6 — Contrôle qualité rétrospectif
 
 **Horizon** : phase de consolidation
 

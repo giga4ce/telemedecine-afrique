@@ -9,6 +9,10 @@
 - Partenariats formels à signer avec les structures hospitalières avant toute activité opérationnelle.
 - Workflow d'accès : médecin inscrit → validation administrateur plateforme ; établissement partenaire → création d'accès par l'administrateur plateforme pour les personnes habilitées.
 
+## Cadrage d'exécution
+
+Le POC technique actuel démarre avec le Tchad comme premier terrain de validation. Les informations ci-dessous conservent la vision multi-pays historique et ne valent pas autorisation opérationnelle.
+
 ## Côte d'Ivoire
 
 Cadre le plus avancé des 3 pays : un décret spécifique encadre la pratique de la télémédecine (adopté en 2018). Candidat naturel pour un lancement en premier, sous réserve de vérification à jour du texte et de ses modalités d'application actuelles.
@@ -23,4 +27,4 @@ Pas de texte spécifique identifié à ce jour sur la télémédecine transfront
 
 ## Action à mener (hors périmètre technique)
 
-Ce fichier est informatif pour cadrer les développeurs et agents IA — le suivi juridique effectif (démarches, contacts, validation officielle) se fait en dehors de ce dépôt technique.
+Ce fichier est informatif pour cadrer les développeurs et les fonctions IA futures du produit. Le suivi juridique effectif (démarches, contacts, validation officielle) se fait en dehors de ce dépôt technique.

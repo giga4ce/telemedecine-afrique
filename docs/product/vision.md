@@ -1,6 +1,12 @@
 # Synthèse du dossier de projet
 
-Le document source complet (mise en page bailleur) est dans `dossier-projet-original.docx`. Cette synthèse est la version de référence pour un agent IA.
+Le document source complet historique est dans `../sources/dossier-projet-original.md`. Cette synthèse conserve la vision stratégique du projet.
+
+## Note de cadrage actuelle
+
+Le dossier historique envisage un pilote couvrant le Tchad, la Côte d'Ivoire et le Cameroun. L'exécution actuelle est séquencée : le POC technique de téléradiologie se concentre sur la chaîne Orthanc, DICOMweb et OHIF, avec le Tchad comme premier terrain de validation.
+
+Cette priorisation ne remet pas en cause la vision multi-pays. Elle évite de faire dépendre le POC technique d'une plateforme opérationnelle multi-pays.
 
 ## Résumé
 
@@ -26,10 +32,10 @@ Hôpitaux publics, cliniques privées, centres d'imagerie, cabinets médicaux.
 
 ## Statut réglementaire et organisationnel
 
-Voir `reserves-juridiques-pays.md` pour le détail. Résumé : dans les 3 pays, une autorisation préalable de l'Ordre des médecins et du Ministère de la Santé est nécessaire, ainsi que des partenariats hospitaliers signés, avant toute mise en production. Workflow prévu :
+Voir `../domain/legal-reserves-by-country.md` pour le détail. Résumé : dans les 3 pays, une autorisation préalable de l'Ordre des médecins et du Ministère de la Santé est nécessaire, ainsi que des partenariats hospitaliers signés, avant toute mise en production. Workflow prévu :
 - Un médecin spécialiste s'inscrit sur la plateforme → validation par un administrateur avant de pouvoir exercer.
 - Un établissement signe un partenariat → l'administrateur de la plateforme crée les accès pour les personnes habilitées à envoyer des examens.
 
-## Roadmap agents IA (vision)
+## Fonctions IA futures du produit
 
-Voir le dossier `agents-ia/` pour les fiches détaillées. Priorité phase pilote : pré-tri des examens, aide à la structuration des comptes rendus, coordination des plannings, support établissements. Priorité phase de consolidation : second regard IA sur l'image, contrôle qualité rétrospectif, synthèse des RCP, veille réglementaire multi-pays.
+Voir `../target-platform/ai-functional-agents/` pour les fiches détaillées. Ces documents décrivent des fonctions futures du produit, pas des outils de développement.

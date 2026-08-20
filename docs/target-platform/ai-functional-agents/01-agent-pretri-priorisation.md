@@ -1,6 +1,6 @@
-# Agent 1 — Pré-tri et priorisation des examens
+# Fonction IA 1 — Pré-tri et priorisation des examens
 
-**Horizon** : phase pilote
+**Horizon** : pilote opérationnel post-POC
 
 ## Objectif
 Analyser les métadonnées d'un examen reçu (type, urgence relative, sur-spécialité requise) et proposer un ordre de traitement ainsi qu'une affectation suggérée à l'expert le plus pertinent selon compétence et disponibilité.

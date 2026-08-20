@@ -17,5 +17,5 @@ Responsabilités :
 
 Garde-fous absolus :
 - Aucune donnée patient réelle, même en fixtures de développement — utiliser des fixtures anonymisées/synthétiques.
-- Toute route touchant à l'inscription d'un médecin ou à la création d'accès établissement doit respecter le workflow de validation par l'administrateur décrit dans `docs/reserves-juridiques-pays.md` (pas d'auto-activation).
+- Toute route touchant à l'inscription d'un médecin ou à la création d'accès établissement doit respecter le workflow de validation par l'administrateur décrit dans `docs/domain/legal-reserves-by-country.md` (pas d'auto-activation).
 - Signaler explicitement (commentaire `// À valider juridiquement`) toute logique reposant sur une hypothèse réglementaire non confirmée.
