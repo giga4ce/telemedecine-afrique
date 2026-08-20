@@ -15,4 +15,3 @@
 - `domain/` : contraintes métier et réglementaires.
 - `target-platform/` : éléments de la plateforme cible, hors POC technique.
 - `sources/` : documents historiques conservés comme sources.
-- `tooling/` : documents liés aux outils de développement, à extraire plus tard vers le AI Harness.

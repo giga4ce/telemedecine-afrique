@@ -48,7 +48,3 @@ DICOM
 Aucune donnée patient réelle ne doit être utilisée dans ce POC.
 
 Le dossier [`data/`](data/) accepte uniquement des données DICOM anonymisées ou synthétiques. Les données de test ne doivent pas contenir d'identité réelle, même partielle.
-
-## Development tooling
-
-Les fichiers dédiés aux assistants de développement restent dans ce repository pour l'instant. Ils seront extraits plus tard dans un repository AI Harness séparé.
