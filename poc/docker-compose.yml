@@ -17,6 +17,20 @@ services:
       - orthanc-storage:/var/lib/orthanc/db
     restart: unless-stopped
 
+  # Backend produit (FastAPI) — squelette à implémenter.
+  # TODO : créer backend/Dockerfile (image Python 3.x, Uvicorn/Gunicorn, expose 8000).
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: backend-poc
+    ports:
+      - "8000:8000"   # API FastAPI (Uvicorn/Gunicorn)
+    depends_on:
+      - orthanc
+    # TODO : externaliser la configuration via variables d'environnement (.env non versionné).
+    restart: unless-stopped
+
   # OHIF Viewer nécessite une configuration pointant vers le endpoint DICOMweb d'Orthanc.
   # TODO : construire/servir OHIF (build officiel ou image communautaire) et configurer
   # app-config.js pour pointer vers http://orthanc:8042/dicom-web

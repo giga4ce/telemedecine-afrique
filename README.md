@@ -32,6 +32,29 @@ DICOM
 - Aucun frontend produit complet n'est implémenté.
 - Aucun jeu DICOM de démonstration n'est versionné.
 
+## Stack technique
+
+- Backend : Python / FastAPI (async), SQLAlchemy 2.0, migrations Alembic — non initialisé (stack cible).
+- Frontend : React — non initialisé (stack cible).
+- POC téléradiologie : Orthanc (serveur DICOM) + DICOMweb + OHIF Viewer, orchestrés par Docker Compose.
+
+## Structure du dépôt
+
+```text
+.
+├── README.md
+├── AGENTS.md                 # contexte LLM généré (harness)
+├── .codex/                   # contexte, skills et manifest installés (harness)
+├── docs/                     # documentation produit
+│   ├── product/              # vision, roadmap, glossaire
+│   ├── poc/                  # périmètre et architecture du POC
+│   ├── domain/               # réserves juridiques par pays
+│   ├── target-platform/      # plateforme cible, fonctions IA futures
+│   └── sources/              # sources historiques
+├── poc/                      # Docker Compose : Orthanc + OHIF (+ backend FastAPI à venir)
+└── data/                     # données de test uniquement, anonymisées ou synthétiques
+```
+
 ## Documentation
 
 - Vision produit : [`docs/product/vision.md`](docs/product/vision.md)
