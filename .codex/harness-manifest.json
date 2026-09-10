@@ -1,0 +1,53 @@
+{
+  "adapter": "llms/codex/adapter.yaml",
+  "files": {
+    ".codex/context/poc-boundaries.md": {
+      "sha256": "b3a77693f11bb81d2038398c99386c5a0c9200db7d492ac9b4e3d529d822f5f1",
+      "source": "profiles/telemedecine-afrique/context/poc-boundaries.md"
+    },
+    ".codex/context/project-rules.md": {
+      "sha256": "20909fcbbe66e333c8a03ef2466d2beb96c5ba6dcf50049bbcc8127bdacfdfda",
+      "source": "profiles/telemedecine-afrique/context/project-rules.md"
+    },
+    ".codex/context/reading-order.md": {
+      "sha256": "6271b6eeb020141c1f30a02555b64322b2d4972f20d10fff917a1144915d56aa",
+      "source": "profiles/telemedecine-afrique/context/reading-order.md"
+    },
+    ".codex/context/repository-map.md": {
+      "sha256": "954d0d929c0eb50590859815024ae11b0fcc1b921fcefad574a569ded979bba0",
+      "source": "profiles/telemedecine-afrique/context/repository-map.md"
+    },
+    ".codex/context/workflow.md": {
+      "sha256": "182b9c6d7bcbcf965792b32aaf9c0f1a0055f492f9230952b063d8b3a5c2257d",
+      "source": "profiles/telemedecine-afrique/context/workflow.md"
+    },
+    ".codex/skills/common/architecture-review/SKILL.md": {
+      "sha256": "ea10265e01e30dea0b0c5eb7452d83639f97544a8025f1f1157c618774b20d23",
+      "source": "skills/common/architecture-review/SKILL.md"
+    },
+    ".codex/skills/common/documentation/SKILL.md": {
+      "sha256": "73f749547519121b187613b98d1b628b84885e170660aec320812591e0fd4566",
+      "source": "skills/common/documentation/SKILL.md"
+    },
+    ".codex/skills/common/git-workflow/SKILL.md": {
+      "sha256": "94357d2b0749ec1be47d5ea11d61a9f2c96840c353a660125ed28e8ef1863111",
+      "source": "skills/common/git-workflow/SKILL.md"
+    },
+    ".codex/skills/healthcare/data-safety/SKILL.md": {
+      "sha256": "caeeb7ac2c075c67aaccddc84224bc3ece61686679afb68e6fa84d5c67f21a04",
+      "source": "skills/healthcare/data-safety/SKILL.md"
+    },
+    ".codex/skills/healthcare/dicom/SKILL.md": {
+      "sha256": "cc7889cc90975e6ac899383dd42c8947ddd80d3d35e6dc15a374f16eabcb12bb",
+      "source": "skills/healthcare/dicom/SKILL.md"
+    },
+    "AGENTS.md": {
+      "sha256": "0419522357e4c9d47c7140a7e4ae14886cbb8d40d82f237b1ccc65d8f8e7ca08",
+      "source": "llms/codex/templates/AGENTS.md.tmpl"
+    }
+  },
+  "harness": "telemedecine-afrique-ai-harness",
+  "llm": "codex",
+  "profile": "telemedecine-afrique",
+  "schema_version": 1
+}
