@@ -22,7 +22,7 @@
       "source": "profiles/telemedecine-afrique/context/workflow.md"
     },
     ".codex/skills/common/architecture-review/SKILL.md": {
-      "sha256": "ea10265e01e30dea0b0c5eb7452d83639f97544a8025f1f1157c618774b20d23",
+      "sha256": "a62cab22826d178b4e59cdd2318b449142ca38eb1fdfcec4108376744fd3f2ff",
       "source": "skills/common/architecture-review/SKILL.md"
     },
     ".codex/skills/common/documentation/SKILL.md": {
@@ -42,7 +42,7 @@
       "source": "skills/healthcare/dicom/SKILL.md"
     },
     "AGENTS.md": {
-      "sha256": "0419522357e4c9d47c7140a7e4ae14886cbb8d40d82f237b1ccc65d8f8e7ca08",
+      "sha256": "6cec88a6805744e0f8be245df55c2848a9047fb8cb4a3b64e881ed76a9ddee6d",
       "source": "llms/codex/templates/AGENTS.md.tmpl"
     }
   },
