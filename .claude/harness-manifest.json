@@ -30,7 +30,7 @@
       "source": "profiles/telemedecine-afrique/context/poc-boundaries.md"
     },
     ".claude/context/project-rules.md": {
-      "sha256": "20909fcbbe66e333c8a03ef2466d2beb96c5ba6dcf50049bbcc8127bdacfdfda",
+      "sha256": "efab216efc9ab03d6815f6bfd83bd1c640679dccb0bfe65b6132882d46597de7",
       "source": "profiles/telemedecine-afrique/context/project-rules.md"
     },
     ".claude/context/reading-order.md": {
@@ -66,7 +66,7 @@
       "source": "skills/healthcare/dicom/SKILL.md"
     },
     "CLAUDE.md": {
-      "sha256": "25c830ed6b9c2b1aad5acf4f8d356ce2b62f8e98bc12b3fc79e78eea9bffaf1c",
+      "sha256": "5e2f898d53bdb05b9dac157822bf99c77059b46986f5c7b8672bd1af146978fb",
       "source": "llms/claude/templates/CLAUDE.md.tmpl"
     }
   },

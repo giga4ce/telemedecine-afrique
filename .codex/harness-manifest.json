@@ -6,7 +6,7 @@
       "source": "profiles/telemedecine-afrique/context/poc-boundaries.md"
     },
     ".codex/context/project-rules.md": {
-      "sha256": "20909fcbbe66e333c8a03ef2466d2beb96c5ba6dcf50049bbcc8127bdacfdfda",
+      "sha256": "efab216efc9ab03d6815f6bfd83bd1c640679dccb0bfe65b6132882d46597de7",
       "source": "profiles/telemedecine-afrique/context/project-rules.md"
     },
     ".codex/context/reading-order.md": {
