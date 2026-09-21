@@ -25,6 +25,10 @@
       "sha256": "cdbe80f9076a15fc12def26e6b22ea888af48a58aaa0d8e0168042a8a17db9fd",
       "source": "llms/claude/agents/tests-qualite.md"
     },
+    ".claude/context/jira.md": {
+      "sha256": "4b36e82f47372bd1bdb90cd8dfc196594c77df34bd0f60c9926afce5d33b332a",
+      "source": "profiles/telemedecine-afrique/context/jira.md"
+    },
     ".claude/context/poc-boundaries.md": {
       "sha256": "b3a77693f11bb81d2038398c99386c5a0c9200db7d492ac9b4e3d529d822f5f1",
       "source": "profiles/telemedecine-afrique/context/poc-boundaries.md"
@@ -65,8 +69,12 @@
       "sha256": "cc7889cc90975e6ac899383dd42c8947ddd80d3d35e6dc15a374f16eabcb12bb",
       "source": "skills/healthcare/dicom/SKILL.md"
     },
+    ".mcp.json": {
+      "sha256": "37324463496d4fcfed97509c66a7363d33f67de8224a43fd01973989e4f071f2",
+      "source": "llms/claude/templates/mcp.json.tmpl"
+    },
     "CLAUDE.md": {
-      "sha256": "5e2f898d53bdb05b9dac157822bf99c77059b46986f5c7b8672bd1af146978fb",
+      "sha256": "3db9afd72cba5ac36b9f0c6ddf1b03b36ea9aebf2a827ce7e289e6c082c9191c",
       "source": "llms/claude/templates/CLAUDE.md.tmpl"
     }
   },
