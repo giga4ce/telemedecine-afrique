@@ -20,6 +20,8 @@ Périmètre :
 
 Le premier terrain de validation est le Tchad.
 
+Le pays de la **démonstration et de l'exécution technique actuelle** (Tchad) ne préjuge pas du pays retenu pour le **premier lancement opérationnel réel** après obtention des autorisations : sur le plan réglementaire, la Côte d'Ivoire — dotée d'un décret télémédecine (2018) — reste le candidat le plus avancé (voir `../domain/legal-reserves-by-country.md`). Terrain de démonstration et pays de premier lancement sont deux questions distinctes.
+
 ## 2. Pilote opérationnel après POC
 
 Objectif : transformer la preuve technique en pilote métier encadré.

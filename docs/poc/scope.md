@@ -53,7 +53,7 @@ Le projet vise à connecter des établissements de santé d'Afrique francophone 
 | Serveur DICOM | Réception, stockage, routage des images | Orthanc (open source) |
 | Visualiseur | Affichage web des examens (zoom, contraste, défilement) | OHIF Viewer (open source), via protocole DICOMweb |
 | Conteneurisation | Portabilité entre local et cloud | Docker + Docker Compose |
-| Interface de gestion des accès (maquette) | Simulation du workflow inscription/validation | Développement simple à définir avec le prestataire (ex. application web légère) |
+| Interface de gestion des accès (maquette) | Simulation du workflow inscription/validation | Frontend React + API FastAPI (async, SQLAlchemy 2.0 / Alembic), base PostgreSQL — stack actée (voir `../product/build-plan.md`, SPEC-01) |
 
 ### 3.2 Schéma de principe
 

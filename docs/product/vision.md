@@ -8,6 +8,8 @@ Le dossier historique envisage un pilote couvrant le Tchad, la Côte d'Ivoire et
 
 Cette priorisation ne remet pas en cause la vision multi-pays. Elle évite de faire dépendre le POC technique d'une plateforme opérationnelle multi-pays.
 
+Le POC technique actuel constitue une **première tranche** de la « Phase 1 » décrite dans le dossier historique, et non son équivalent complet : les comptes rendus médicaux, la deuxième lecture, les RCP, la gestion des vacations et le déploiement multi-pays restent **hors du périmètre du POC actuel** (voir `../poc/scope.md`).
+
 ## Résumé
 
 Réseau francophone de télémédecine pour l'Afrique. Phase 1 : plateforme de téléradiologie (comptes rendus, deuxième lecture, avis spécialisés, RCP à distance) connectant des établissements de santé à des radiologues experts francophones.
