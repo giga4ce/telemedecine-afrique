@@ -1,6 +1,6 @@
 # Plan de construction — POC de téléradiologie
 
-**Statut :** proposition à valider — aucun code écrit, aucun ticket Jira créé.  
+**Statut :** décisions d'architecture actées ; 19 tickets créés de KAN-4 à KAN-22 ; prêt pour le démarrage du code sur KAN-5.
 **Périmètre :** inventaire documentaire, synthèse du produit attendu, specs actionnables et ordre de réalisation.  
 **Source canonique du POC :** `docs/poc/scope.md`. Les documents de vision et de plateforme cible ne l'étendent pas.
 
@@ -72,7 +72,7 @@ Le dossier historique `agents-ia/` n'existe plus. Ses huit fiches d'agents **fon
 | Résilience réseau | Tests à définir et documenter |
 | OVHcloud | Aucun déploiement configuré |
 
-### 1.4 Incohérences, tensions et ambiguïtés relevées — non corrigées
+### 1.4 Incohérences, tensions et ambiguïtés relevées — statut de résolution
 
 | # | Sujet | Constat contradictoire ou ambigu | Sources |
 |---|---|---|---|
@@ -80,7 +80,7 @@ Le dossier historique `agents-ia/` n'existe plus. Ses huit fiches d'agents **fon
 | C2 | Persistance | SQLAlchemy/Alembic sont annoncés comme stack cible, mais aucun moteur de base n'est choisi ou déclaré. Les parcours d'accès impliquent pourtant de conserver comptes, statuts et habilitations. | `README.md`, `docs/poc/scope.md`, Compose |
 | C3 | Portée de React | La demande vise React et le README le désigne comme stack cible ; le cahier du POC demande seulement une « application web légère » à définir et n'impose pas React. | `README.md`, `docs/poc/scope.md` |
 | C4 | Backend et examens | Le POC exige qu'un examen soit retrouvable par établissement, type et date, mais ne dit pas si cette recherche relève directement d'OHIF/Orthanc ou d'une API FastAPI avec index local. | `docs/poc/scope.md` |
-| C5 | Déploiement OVH | `scope.md` inclut la bascule OVH et en fait un critère de réussite ; `roadmap.md` ne prévoit que la préparation d'un redéploiement ultérieur. | `docs/poc/scope.md`, `docs/product/roadmap.md` |
+| C5 | Déploiement OVH | Résolu : `scope.md` et `roadmap.md` incluent désormais l'exécution du redéploiement OVH dans le POC. | `docs/poc/scope.md`, `docs/product/roadmap.md` |
 | C6 | Reprise réseau | Le POC exige qu'une transmission reprenne sans renvoi complet après coupure, mais aucun protocole ou mécanisme de reprise n'est défini. La vision parle plus largement d'« offline-first ». | `docs/poc/scope.md`, `docs/product/vision.md` |
 | C7 | Pays prioritaire | Le Tchad est le premier terrain d'exécution actuel ; le document juridique qualifie la Côte d'Ivoire de candidat naturel au premier lancement, et le dossier historique prévoit trois pays simultanément. | `scope.md`, `roadmap.md`, `legal-reserves-by-country.md`, dossier historique |
 | C8 | Ordre de lecture | `.claude/context/reading-order.md` commence par le README et le scope ; `docs/README.md` recommande de commencer par la vision puis la roadmap. | Les deux fichiers cités |
@@ -101,7 +101,7 @@ La documentation fixe FastAPI async, SQLAlchemy 2.0 et Alembic comme stack cible
 - fournir le support persistant de la maquette d'accès : demandes médecins, statut en attente/validé/refusé, établissements fictifs et accès créés par un administrateur ;
 - garantir qu'un médecin non validé ne peut pas agir et qu'un établissement ne s'auto-active pas ;
 - permettre à la maquette d'administration de consulter et modifier ces statuts ;
-- si la décision C4 lui attribue ce rôle, interroger Orthanc/DICOMweb pour retrouver les examens par établissement, type et date, sans dupliquer les images ;
+- conformément à la décision 4 de SPEC-01, interroger Orthanc/DICOMweb via FastAPI pour retrouver les examens par établissement, type et date, sans dupliquer les images ;
 - ne jamais utiliser ni journaliser de donnée patient réelle.
 
 Ne font pas partie du backend POC : comptes rendus, vacations, facturation, RCP, réseau complet d'experts, PACS/RIS réel, multi-pays, IA médicale et sécurité/conformité de production.
@@ -111,7 +111,7 @@ Ne font pas partie du backend POC : comptes rendus, vacations, facturation, RCP,
 La documentation distingue deux surfaces :
 
 - **OHIF Viewer**, cœur visuel du POC, configuré sur DICOMweb pour afficher dans un navigateur les examens de test et permettre zoom, contraste et défilement ;
-- **maquette de gestion des accès**, dont React est la stack cible à confirmer : demande d'inscription médecin, statut « en attente », validation/refus administrateur, établissement fictif et création administrative des accès.
+- **maquette de gestion des accès**, réalisée avec React comme acté en SPEC-01 : demande d'inscription médecin, statut « en attente », validation/refus administrateur, établissement fictif et création administrative des accès.
 
 Le frontend doit expliciter les erreurs et états réseau. Il ne doit pas afficher de véritable identité patient. Une intégration native d'OHIF dans React n'est pas imposée : une navigation vers le viewer suffit tant qu'aucune décision contraire n'est prise.
 
@@ -159,7 +159,8 @@ Les dépendances référencent les identifiants ci-dessous. Un agent principal e
 - **Inclus :** services Orthanc, OHIF, backend FastAPI, frontend React et base PostgreSQL (actés en SPEC-01) ; variables externalisées ; healthchecks de conteneurs ; persistance Orthanc/base ; aucun secret committé.
 - **Exclus :** CI/CD, haute disponibilité, infrastructure HDS et exploitation production.
 - **Dépendances :** SPEC-01.
-- **Terminé si :** une commande documentée démarre tous les services localement, chaque healthcheck passe et la configuration ne contient aucun secret versionné.
+- **Terminé si :** le contrat Compose complet est livré avec réseau, service PostgreSQL, volumes persistants, variables externalisées, noms de services stables, versions d'images figées et healthchecks ; une commande documentée démarre tous les services localement sans secret versionné ; le squelette backend dispose d'un `Dockerfile` minimal qui démarre FastAPI et répond `200` sur `/health`, sans logique métier ; le squelette frontend dispose d'un `Dockerfile` minimal qui sert une page statique.
+- **Répartition avec les specs suivantes :** SPEC-02 livre uniquement ces squelettes exécutables et leur intégration Compose ; SPEC-03 enrichit ensuite le backend FastAPI, et SPEC-13 enrichit ensuite le frontend React.
 - **Agent technique principal :** `devops-infra`.
 
 #### SPEC-03 — Fondations FastAPI
@@ -188,6 +189,7 @@ Les dépendances référencent les identifiants ci-dessous. Un agent principal e
 - **Inclus :** configuration DICOMweb vérifiée, authentification basique externalisée, volume persistant, contrôle des endpoints exposés.
 - **Exclus :** sécurité/HDS de production, PACS/RIS réel.
 - **Dépendances :** SPEC-02.
+- **Décision différée :** avant l'implémentation de SPEC-16, trancher la stratégie d'authentification entre OHIF, Orthanc et FastAPI : reverse proxy, relais DICOMweb côté serveur ou authentification portée par un proxy.
 - **Terminé si :** Orthanc refuse un accès non authentifié, accepte les identifiants injectés hors Git et expose DICOMweb aux composants autorisés.
 - **Agent technique principal :** `dicom-integration` ; revue lecture seule `securite-conformite`.
 
@@ -215,6 +217,7 @@ Les dépendances référencent les identifiants ci-dessous. Un agent principal e
 - **Inclus :** import DICOM **instance par instance** (décision 5 de SPEC-01, base de la reprise réseau) ; recherche **médiée par FastAPI** interrogeant Orthanc (décision 4) ; métadonnées strictement nécessaires ; filtres documentés.
 - **Exclus :** PACS/RIS réel, dossier patient, compte rendu, duplication des pixels en base applicative.
 - **Dépendances :** SPEC-01, SPEC-03 (FastAPI porte la recherche), SPEC-05, SPEC-06.
+- **Décision différée :** avant l'implémentation, formaliser le protocole de reprise DICOM : identifiant d'idempotence (probablement le SOP Instance UID), définition d'une confirmation et gestion des doublons.
 - **Terminé si :** un examen envoyé par le parcours fictif est stocké puis retrouvé via FastAPI avec chacun des trois critères, sans donnée réelle.
 - **Agent technique principal :** `dicom-integration` ; appui `backend-fastapi` (API de recherche).
 
@@ -224,6 +227,7 @@ Les dépendances référencent les identifiants ci-dessous. Un agent principal e
 - **Inclus :** protocole de test reproductible, conditions mesurées, coupure/reprise, observation de perte ou corruption, vérification du critère de reprise arrêté en SPEC-01.
 - **Exclus :** garantie SLA, optimisation mondiale, mode offline complet non spécifié.
 - **Dépendances :** SPEC-07, SPEC-08.
+- **Décision différée :** avant l'implémentation, formaliser avec SPEC-08 le protocole de reprise DICOM : identifiant d'idempotence (probablement le SOP Instance UID), définition d'une confirmation et gestion des doublons.
 - **Terminé si :** les scénarios lent/coupure/reprise sont exécutés et documentés, et le critère canonique « sans renvoi complet » est démontré ou l'écart est explicitement signalé.
 - **Agent technique principal :** `tests-qualite` ; appui `dicom-integration`, `devops-infra`.
 
@@ -289,6 +293,7 @@ Les dépendances référencent les identifiants ci-dessous. Un agent principal e
 - **Inclus :** navigation vers OHIF pour l'examen de test autorisé, gestion des erreurs d'accès, méthode d'intégration minimale décidée (lien/redirect/iframe).
 - **Exclus :** viewer DICOM React maison, intégration OHIF native non nécessaire au POC.
 - **Dépendances :** SPEC-07, SPEC-08, SPEC-13 et règles d'accès de SPEC-01.
+- **Décision préalable :** avant l'implémentation de cette spec, trancher la stratégie d'authentification entre OHIF, Orthanc et FastAPI : reverse proxy, relais DICOMweb côté serveur ou authentification portée par un proxy.
 - **Terminé si :** depuis la maquette, le scénario autorisé ouvre l'examen dans OHIF et le scénario non autorisé est bloqué.
 - **Agent technique principal :** `frontend-react` ; appui `dicom-integration`, revue `securite-conformite`.
 
@@ -374,4 +379,4 @@ Les questions d'architecture qui bloquaient l'amorçage sont tranchées dans **S
 7. Identification/rôles de la maquette — **auth basique Orthanc + token/session simple** côté admin FastAPI, non-production.
 8. SPEC-19 (pré-tri post-POC) — **documentée, mais hors du lot de tickets POC actif**.
 
-**STOP — attendre la validation de ce plan et des décisions actées avant toute création de ticket Jira ou tout amorçage de code.**
+**Prochaine étape :** démarrer l'implémentation sur KAN-5 (SPEC-02), selon le contrat Compose et la répartition avec SPEC-03 et SPEC-13 définis ci-dessus.

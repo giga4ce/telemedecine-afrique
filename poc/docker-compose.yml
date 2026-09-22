@@ -3,8 +3,9 @@
 # Rappel : aucune donnée patient réelle, y compris en local.
 
 services:
+  # Version stable 26.9.1 figée pour rendre les déploiements local et OVH reproductibles.
   orthanc:
-    image: orthancteam/orthanc:latest
+    image: orthancteam/orthanc:26.9.1
     container_name: orthanc-poc
     ports:
       - "8042:8042"   # Interface web Orthanc + API REST
@@ -34,8 +35,9 @@ services:
   # OHIF Viewer nécessite une configuration pointant vers le endpoint DICOMweb d'Orthanc.
   # TODO : construire/servir OHIF (build officiel ou image communautaire) et configurer
   # app-config.js pour pointer vers http://orthanc:8042/dicom-web
+  # Version stable v3.12.18 figée pour rendre les déploiements local et OVH reproductibles.
   ohif:
-    image: ohif/app:latest
+    image: ohif/app:v3.12.18
     container_name: ohif-poc
     ports:
       - "3000:80"

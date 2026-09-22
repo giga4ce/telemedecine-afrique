@@ -16,7 +16,7 @@ Périmètre :
 - Simulation minimale du parcours médecin et de la validation administrative.
 - Tests de réseau lent, instable, coupure et reprise.
 - Fonctionnement local.
-- Préparation d'un redéploiement ultérieur sur OVHcloud.
+- Redéploiement exécuté sur OVHcloud dans le cadre du POC (SPEC-18 / KAN-21).
 
 Le premier terrain de validation est le Tchad.
 

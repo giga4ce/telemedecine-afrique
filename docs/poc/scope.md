@@ -68,7 +68,7 @@ Le projet vise à connecter des établissements de santé d'Afrique francophone 
 
 - **Phase locale** : Docker Desktop (Windows/Mac) ou Docker Engine (Linux), poste avec 8 Go de RAM minimum recommandés.
 - **Phase cloud** : instance OVHcloud (offre standard pour le POC ; bascule possible vers une offre certifiée HDS lors du passage en production).
-- Même fichier `docker-compose.yml` et mêmes variables d'environnement utilisés dans les deux phases, pour garantir une bascule sans reconstruction.
+- Même fichier `docker-compose.yml` et même contrat de configuration dans les deux phases (mêmes noms de variables), avec des valeurs propres à chaque environnement, pour garantir une bascule sans reconstruction.
 
 ## 4. Jeu de données de test
 
