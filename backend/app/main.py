@@ -1,15 +1,25 @@
-"""FastAPI skeleton for the teleradiology POC (SPEC-02).
+"""FastAPI application entry point (SPEC-03).
 
-No business logic: exposes a single health endpoint used by the Docker
-healthcheck and the Compose orchestration. Business routes arrive in SPEC-03.
+Instantiates the app, mounts routers and registers centralized error handlers.
+No business model, no DICOM, no database connection (those arrive in SPEC-04+).
 """
 
 from fastapi import FastAPI
 
-app = FastAPI(title="Telemed POC Backend", version="0.1.0")
+from app.api.routes import health
+from app.core.config import get_settings
+from app.core.errors import register_error_handlers
 
 
-@app.get("/health")
-def health() -> dict[str, str]:
-    """Liveness probe consumed by the container healthcheck."""
-    return {"status": "ok"}
+def create_app() -> FastAPI:
+    """Application factory: build and configure the FastAPI instance."""
+    settings = get_settings()
+    app = FastAPI(title=settings.app_name, version=settings.app_version)
+
+    register_error_handlers(app)
+    app.include_router(health.router)
+
+    return app
+
+
+app = create_app()

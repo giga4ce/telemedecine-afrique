@@ -6,6 +6,13 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.32",
+    "pydantic-settings>=2.6",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "httpx>=0.28",
 ]
 
 [build-system]
@@ -14,3 +21,15 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["app"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+# Dépréciation différée (revue KAN-6 — amélioration 2) : Starlette 1.6 recommande
+# `httpx2` pour TestClient, mais ce paquet est trop récent/instable pour un POC.
+# httpx 0.28 + TestClient fonctionnent correctement ; migration à revoir quand
+# l'écosystème se stabilise. On filtre l'avertissement pour garder la sortie lisible.
+filterwarnings = [
+    # StarletteDeprecationWarning hérite de UserWarning (pas DeprecationWarning).
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated:UserWarning",
+]
