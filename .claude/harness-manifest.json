@@ -17,6 +17,10 @@
       "sha256": "db7474cabc8e49c64b99883a7fd3e9779eb3a02be868ae88285fa59539610731",
       "source": "llms/claude/agents/frontend-react.md"
     },
+    ".claude/agents/mentor-python.md": {
+      "sha256": "61b1ad38f078131c544de446d7b46267fa485e53c8bff9da8be4fa6a09fbb216",
+      "source": "llms/claude/agents/mentor-python.md"
+    },
     ".claude/agents/securite-conformite.md": {
       "sha256": "1b0df81c3a62e3ac60e079fdc4e31b9a5ac534c4dd0e04542476129d19959cc2",
       "source": "llms/claude/agents/securite-conformite.md"
@@ -58,7 +62,7 @@
       "source": "skills/common/documentation/SKILL.md"
     },
     ".claude/skills/common/git-workflow/SKILL.md": {
-      "sha256": "578f42d50b07b565bf1776ea8813151ae694eb8b0d695d9d584b17d6628acd62",
+      "sha256": "8ba63cfa2e54def6b9fc04ea28aab42651757948b793ec346cb436eccdab5ff5",
       "source": "skills/common/git-workflow/SKILL.md"
     },
     ".claude/skills/healthcare/data-safety/SKILL.md": {
@@ -74,7 +78,7 @@
       "source": "llms/claude/templates/mcp.json.tmpl"
     },
     "CLAUDE.md": {
-      "sha256": "3db9afd72cba5ac36b9f0c6ddf1b03b36ea9aebf2a827ce7e289e6c082c9191c",
+      "sha256": "bfb3829ddec2faf2ace2edc461c685afaa93155a211b570056027b6c5535b12a",
       "source": "llms/claude/templates/CLAUDE.md.tmpl"
     }
   },

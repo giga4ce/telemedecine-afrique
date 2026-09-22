@@ -38,7 +38,7 @@
       "source": "skills/common/documentation/SKILL.md"
     },
     ".codex/skills/common/git-workflow/SKILL.md": {
-      "sha256": "578f42d50b07b565bf1776ea8813151ae694eb8b0d695d9d584b17d6628acd62",
+      "sha256": "8ba63cfa2e54def6b9fc04ea28aab42651757948b793ec346cb436eccdab5ff5",
       "source": "skills/common/git-workflow/SKILL.md"
     },
     ".codex/skills/healthcare/data-safety/SKILL.md": {
@@ -50,7 +50,7 @@
       "source": "skills/healthcare/dicom/SKILL.md"
     },
     "AGENTS.md": {
-      "sha256": "959d74f0d516125cf3b8f785994e3fa22614fe07d10e872832f425b0b97c948a",
+      "sha256": "8bc6f5e12e1d562f24b1ab8aee0d73320d122ca1c9c1714cbd5e89e675846181",
       "source": "llms/codex/templates/AGENTS.md.tmpl"
     }
   },
