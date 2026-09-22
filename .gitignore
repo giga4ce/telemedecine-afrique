@@ -18,6 +18,10 @@
 
 # --- Docker ---
 poc/orthanc-storage/
+# .env local du socle Compose — jamais committé (garder .env.example versionné)
+poc/.env
+poc/.env.local
+poc/.env.*.local
 
 # --- Données (rappel : jamais de vraies données ici) ---
 data/*

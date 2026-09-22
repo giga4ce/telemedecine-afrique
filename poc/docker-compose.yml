@@ -1,50 +1,121 @@
-# Squelette de départ pour le POC — Orthanc (serveur DICOM) + OHIF Viewer (visualiseur web)
-# À adapter/compléter avant une démonstration de bout en bout.
-# Rappel : aucune donnée patient réelle, y compris en local.
+# Socle Compose local portable pour le POC de téléradiologie (SPEC-02).
+# Orthanc (DICOM) + OHIF (viewer) + backend FastAPI + frontend React + PostgreSQL.
+# Rappel : aucune donnée patient réelle, y compris en local. Aucun secret versionné :
+# toute valeur sensible provient d'un .env non committé (cf. .env.example).
 
 services:
-  # Version stable 26.9.1 figée pour rendre les déploiements local et OVH reproductibles.
+  # Serveur DICOM + API REST + DICOMweb. Version figée pour reproductibilité local<->OVH.
   orthanc:
     image: orthancteam/orthanc:26.9.1
     container_name: orthanc-poc
     ports:
-      - "8042:8042"   # Interface web Orthanc + API REST
-      - "4242:4242"   # Port DICOM standard (C-STORE, etc.)
+      - "${ORTHANC_HTTP_PORT:-8042}:8042"   # Interface web Orthanc + API REST
+      - "${ORTHANC_DICOM_PORT:-4242}:4242"  # Port DICOM standard (C-STORE, etc.)
     environment:
-      ORTHANC__NAME: "POC-Teleradiologie"
+      ORTHANC__NAME: "${ORTHANC_NAME:-POC-Teleradiologie}"
       ORTHANC__DICOM_WEB_PLUGIN_ENABLED: "true"
-      # TODO : ajouter authentification (ORTHANC__REGISTERED_USERS) avant toute démo partagée
+      # Auth désactivée explicitement : squelette SPEC-02 sans secret versionné.
+      # SPEC-05 rétablit l'authentification basique (RegisteredUsers injectés hors Git).
+      ORTHANC__AUTHENTICATION_ENABLED: "false"
     volumes:
       - orthanc-storage:/var/lib/orthanc/db
+    networks:
+      - poc-net
+    healthcheck:
+      # Image Orthanc sans curl/wget : sonde via python3 (présent dans l'image).
+      test: ["CMD", "python3", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8042/system').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
     restart: unless-stopped
 
-  # Backend produit (FastAPI) — squelette à implémenter.
-  # TODO : créer backend/Dockerfile (image Python 3.x, Uvicorn/Gunicorn, expose 8000).
+  # Base relationnelle (SPEC-01 décision 3). AUCUNE publication du port 5432 :
+  # accès uniquement via le réseau Docker interne (5432 déjà occupé sur l'hôte).
+  postgres:
+    image: postgres:17.2-alpine
+    container_name: postgres-poc
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - poc-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+    restart: unless-stopped
+
+  # Backend produit (FastAPI) — squelette SPEC-02, /health uniquement, sans base.
   backend:
     build:
       context: ../backend
       dockerfile: Dockerfile
     container_name: backend-poc
     ports:
-      - "8000:8000"   # API FastAPI (Uvicorn/Gunicorn)
+      - "${BACKEND_PORT:-8000}:8000"   # API FastAPI (Uvicorn)
     depends_on:
-      - orthanc
-    # TODO : externaliser la configuration via variables d'environnement (.env non versionné).
+      orthanc:
+        condition: service_healthy
+    networks:
+      - poc-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
     restart: unless-stopped
 
-  # OHIF Viewer nécessite une configuration pointant vers le endpoint DICOMweb d'Orthanc.
-  # TODO : construire/servir OHIF (build officiel ou image communautaire) et configurer
-  # app-config.js pour pointer vers http://orthanc:8042/dicom-web
-  # Version stable v3.12.18 figée pour rendre les déploiements local et OVH reproductibles.
+  # OHIF Viewer — configuration DICOMweb Orthanc finalisée en SPEC-07.
   ohif:
     image: ohif/app:v3.12.18
     container_name: ohif-poc
     ports:
-      - "3000:80"
+      - "${OHIF_PORT:-3000}:80"
     depends_on:
-      - orthanc
-    # TODO : monter une configuration personnalisée (volume) référençant Orthanc en DICOMweb
+      orthanc:
+        condition: service_healthy
+    networks:
+      - poc-net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
     restart: unless-stopped
+
+  # Frontend produit (React/Vite) — squelette SPEC-02, page statique servie par nginx.
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: frontend-poc
+    ports:
+      - "${FRONTEND_PORT:-3001}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - poc-net
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+    restart: unless-stopped
+
+networks:
+  poc-net:
+    driver: bridge
 
 volumes:
   orthanc-storage:
+  postgres-data:
