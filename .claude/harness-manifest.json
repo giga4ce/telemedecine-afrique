@@ -61,6 +61,10 @@
       "sha256": "73f749547519121b187613b98d1b628b84885e170660aec320812591e0fd4566",
       "source": "skills/common/documentation/SKILL.md"
     },
+    ".claude/skills/common/environment-check/SKILL.md": {
+      "sha256": "e1d596d2dfadabff2d110b320645b8eeee9a0444dd0f7ca91ee1b619594a9805",
+      "source": "skills/common/environment-check/SKILL.md"
+    },
     ".claude/skills/common/git-workflow/SKILL.md": {
       "sha256": "8ba63cfa2e54def6b9fc04ea28aab42651757948b793ec346cb436eccdab5ff5",
       "source": "skills/common/git-workflow/SKILL.md"
@@ -78,7 +82,7 @@
       "source": "llms/claude/templates/mcp.json.tmpl"
     },
     "CLAUDE.md": {
-      "sha256": "bfb3829ddec2faf2ace2edc461c685afaa93155a211b570056027b6c5535b12a",
+      "sha256": "d881f0052e188658287cab36e7c394beae8e9cf0b17acb7950dfcab39dd602f0",
       "source": "llms/claude/templates/CLAUDE.md.tmpl"
     }
   },
