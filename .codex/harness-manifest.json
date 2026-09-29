@@ -37,6 +37,10 @@
       "sha256": "73f749547519121b187613b98d1b628b84885e170660aec320812591e0fd4566",
       "source": "skills/common/documentation/SKILL.md"
     },
+    ".codex/skills/common/environment-check/SKILL.md": {
+      "sha256": "e1d596d2dfadabff2d110b320645b8eeee9a0444dd0f7ca91ee1b619594a9805",
+      "source": "skills/common/environment-check/SKILL.md"
+    },
     ".codex/skills/common/git-workflow/SKILL.md": {
       "sha256": "8ba63cfa2e54def6b9fc04ea28aab42651757948b793ec346cb436eccdab5ff5",
       "source": "skills/common/git-workflow/SKILL.md"
@@ -50,7 +54,7 @@
       "source": "skills/healthcare/dicom/SKILL.md"
     },
     "AGENTS.md": {
-      "sha256": "8bc6f5e12e1d562f24b1ab8aee0d73320d122ca1c9c1714cbd5e89e675846181",
+      "sha256": "7b83c8a5dca3f01eb8f312299f2dfb579f2e74d5f366b46d115f618ca59f42bc",
       "source": "llms/codex/templates/AGENTS.md.tmpl"
     }
   },
